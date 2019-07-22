@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>01_严格模式</title>
+</head>
+<!--
+    1、使用严格模式：
+        * 在全局或函数的第一条语句定义：'use strict';
+        * 如果浏览器不支持严格模式，只会讲这句话解析为一条简单的语句，没有任何副作用
+    2、严格模式语法
+        * 必须用var声明变量
+        * 禁止自定义函数中的this指向window
+        * 创建eval作用域的变量
+        * 对象不能有重名的属性
+-->
+<body>
+
+    <script type="text/javascript">
+
+        /*
+         * 启用“严格模式”
+         */
+        'use strict';
+
+        /*
+         * 必须用var声明变量
+         *      * 变量不用var定义，默认该变量属于window，相当于window.username = 'tom';
+         */
+        // username = 'tom';
+
+        /*
+         * eval()函数会将参数中传入的字符串解析为代码语句
+         *      * 严格模式下，在eval()中可以使用var创建eval作用域内的局部变量；如果不用var声明，则优先使用全局变量，全局没有，则创建eval作用域内的局部变量
+         *      * 非严格模式下，不管用不用var修饰，只要全局有，则使用全局变量；全局没有，则创建全局变量
+         */
+        var str = 'NBA';
+        eval('var str = "CBA"; alert(str)');
+        alert(str);
+
+        /*
+         * 对象不能有重名的属性
+         */
+        var obj = {
+            username: 'Tom',
+            // username: 'Jack'
+        }
+
+    </script>
+
+</body>
+</html>

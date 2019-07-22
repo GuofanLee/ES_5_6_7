@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>01_let关键字</title>
+</head>
+<!--
+    1、作用：
+        * 与var类似，用于声明一个变量
+    2、特点
+        * 在块作用域内有效
+        * 不能重复声明变量
+        * 不会预处理，不存在提升
+    3、应用
+        * 循环遍历加监听
+        * 使用let取代var是趋势
+-->
+<body>
+
+    <button>测试1</button>
+    <br>
+    <button>测试2</button>
+    <br>
+    <button>测试3</button>
+    <br>
+
+    <script type="text/javascript">
+
+        /**
+         * 不能重复声明变量
+         */
+        // let username = 'zhangsan';
+        let username = 'lisi';
+        console.log(username);
+
+        /**
+         * 不会预处理
+         */
+        console.log(a1);
+        // console.log(a2);
+        var a1 = 'aaa';
+        let a2 = 'bbb';
+
+        /**
+         * 在循环中使用 let i 作为循环变量，后面循环的 i 值不会改变以前的值
+         * 如果用 var i 作为循环变量，最后一次循环的 i 值会覆盖前面循环的 i 值
+         */
+        let btns = document.getElementsByTagName('button');
+        for (let i = 0; i < btns.length; i++) {
+            var btn = btns[i];
+            btn.onclick = function () {
+                alert(i);
+            }
+        }
+
+    </script>
+
+</body>
+</html>
